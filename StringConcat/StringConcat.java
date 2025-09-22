@@ -1,5 +1,3 @@
-package StringConcat;
-
 public class StringConcat {
     public static String concat(String s1, String s2) {
         if (s1 == null || s2 == null) {

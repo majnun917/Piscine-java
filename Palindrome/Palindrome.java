@@ -1,6 +1,10 @@
+// package Palindrome;
 public class Palindrome {
     public static boolean isPalindrome(String s) {
         // int l = 0;
+        if (s == null){
+            return false;
+        }
         int i = s.length() - 1;
         String right = "";
         while (i >= 0) {

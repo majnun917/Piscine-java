@@ -4,6 +4,8 @@ public class StringConcat {
             return null;
         }else if (s1 == null) {
             return "il pleut";
+        }else if (s2 == null){
+            return "Hello World";
         }
         return s1 + s2;
     }

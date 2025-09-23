@@ -2,20 +2,19 @@ import java.io.*;
 
 public class Cat {
 
-public static void cat(String[] args) {
-    if (args.length == 0) {
-        return;
-    }
-    
-    for (String arg : args) {
-        try (BufferedReader reader = new BufferedReader(new FileReader(arg))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                System.out.println(line);
+    public static void cat(String[] args) throws IOException {
+        if (args.length == 0) {
+            return;
+        }
+
+        for (String filename : args) {
+            try (FileInputStream fis = new FileInputStream(filename)) {
+                byte[] buffer = new byte[8192];
+                int bytesRead;
+                while ((bytesRead = fis.read(buffer)) != -1) {
+                    System.out.write(buffer, 0, bytesRead);
+                }
             }
-        } catch (IOException e) {
-            System.err.println("Error reading file: " + arg);
         }
     }
-}
 }

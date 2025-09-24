@@ -33,8 +33,32 @@ public class CelestialObject{
         return this.name + " is positioned at " + "(" + this.x+"00" +", " + this.y +"00" +", "  + this.z+"00" + ")";
     }
 
-    public boolean equals(CelestialObject obj){
-        return this.name.equals(obj.name) && this.x == obj.x && this.y == obj.y && this.z == obj.z;
+
+    @Override
+    public boolean equals(Object obj){
+        if (this == obj){
+            return true;
+        }
+        if (obj == null){
+            return false;
+        }
+        if (this.getClass() != obj.getClass()){
+            return false;
+        }
+        CelestialObject other = (CelestialObject) obj;
+        if (this.x != other.x){
+            return false;
+        }
+        if (this.y != other.y){
+            return false;
+        }
+        if (this.z != other.z){
+            return false;
+        }
+        if (this.name.equals(other.name)){
+            return true;
+        }
+        return true;
     }
     
     @Override

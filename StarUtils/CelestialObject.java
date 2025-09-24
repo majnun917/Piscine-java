@@ -1,4 +1,7 @@
 public class CelestialObject{
+
+     public static final  int KM_IN_ONE_AU = (int)1.5E8;
+     
     public double x;
     public double y;
     public double z;
@@ -27,6 +30,15 @@ public class CelestialObject{
     public void setY(double  y) {this.y = y;}
     public void setZ(double  z) {this.z = z;}
     public void setName(String name) {this.name = name;}
+
+     public static double getDistanceBetween(CelestialObject obj1, CelestialObject obj2){
+        double distance = Math.sqrt(Math.pow(obj1.x - obj2.x, 2) + Math.pow(obj1.y - obj2.y, 2) + Math.pow(obj1.z - obj2.z, 2));
+        return distance;
+    }
+
+    public static double getDistanceBetweenInKm(CelestialObject obj1, CelestialObject obj2){
+        return getDistanceBetween(obj1, obj2) * KM_IN_ONE_AU;
+    }
  
     @Override
     public String toString(){
@@ -55,10 +67,7 @@ public class CelestialObject{
         if (this.z != other.z){
             return false;
         }
-        if (!this.name.equals(other.name)){
-            return false;
-        }
-        return true;
+        return this.name.equals(other.name);
     }
     
     @Override

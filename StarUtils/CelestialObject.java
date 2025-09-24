@@ -55,8 +55,8 @@ public class CelestialObject{
         if (this.z != other.z){
             return false;
         }
-        if (this.name.equals(other.name)){
-            return true;
+        if (!this.name.equals(other.name)){
+            return false;
         }
         return true;
     }

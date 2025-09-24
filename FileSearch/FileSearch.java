@@ -4,7 +4,7 @@ import java.io.*;
 public class FileSearch {
 
     public static String searchFile(String fileName) {
-        File documentsFolder = new File("document");
+        File documentsFolder = new File("documents");
         //System.out.println(documentsFolder.getAbsolutePath()); 
         return searchInDirectory(documentsFolder, fileName);
     }

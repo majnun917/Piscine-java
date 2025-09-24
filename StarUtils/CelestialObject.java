@@ -42,7 +42,7 @@ public class CelestialObject{
  
     @Override
     public String toString(){
-        return this.name + " is positioned at " + "(" + this.x+"00" +", " + this.y +"00" +", "  + this.z+"00" + ")";
+        return String.format("%s is positioned at (%.3f, %.3f, %.3f)", this.name, this.x, this.y, this.z);
     }
 
 

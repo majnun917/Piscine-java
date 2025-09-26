@@ -12,8 +12,9 @@ public class Star extends CelestialObject {
     }
 
      public Star() {
-        super("Soleil", 0.0, 0.0, 0.0, 0);
+        super();
         this.magnitude = 0.0;
+
     }
 
 

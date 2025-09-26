@@ -63,6 +63,6 @@ public class Star extends CelestialObject {
 
     @Override
     public String toString(){
-        return String.format("%s shines at the (%.3f) magnitude",this.name, this.magnitude);
+        return String.format("%s shines at the %.3f magnitude",this.name, this.magnitude);
     }
 }

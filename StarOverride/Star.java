@@ -53,7 +53,7 @@ public class Star extends CelestialObject {
         } if (this.magnitude != other.magnitude){
             return false;
         }
-        return !this.name.equals(other.name);
+        return this.name.equals(other.name);
     }
     
     @Override

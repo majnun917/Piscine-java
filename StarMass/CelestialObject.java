@@ -1,21 +1,17 @@
-public class CelestialObject{
+public class CelestialObject {
 
-     public static final  int KM_IN_ONE_AU = (int)1.5E8;
-     
-    public double x;
-    public double y;
-    public double z;
-    public String name;
+    public double x = 0.0;
+    public double y = 0.0;
+    public double z = 0.0;
+    public String name = "Soleil";
     private int mass;
+    public static final double KM_IN_ONE_AU = 150000000;
 
     public CelestialObject() {
-        this.x = 0.0;
-        this.y = 0.0;
-        this.z = 0.0;
-        this.name = "Soleil";
+        this.mass = 0;
     }
 
-    public CelestialObject(String name,double x,double y,double z, int mass){
+    public CelestialObject(String name, double x, double y, double z, int mass) {
         this.name = name;
         this.x = x;
         this.y = y;
@@ -23,66 +19,78 @@ public class CelestialObject{
         this.mass = mass;
     }
 
-    public double getX() {return this.x;}
-    public double getY() {return this.y;}
-    public double getZ() {return this.z;}
-    public String getName() {return this.name;}
-    public int getMass() {return this.mass;}
-
-
-    public void setX(double  x) { this.x = x; }
-    public void setY(double  y) {this.y = y;}
-    public void setZ(double  z) {this.z = z;}
-    public void setName(String name) {this.name = name;}
-    public void setMass(int mass) {this.mass = mass;}
-
-
-     public static double getDistanceBetween(CelestialObject obj1, CelestialObject obj2){
-        double distance = Math.sqrt(Math.pow(obj1.x - obj2.x, 2) + Math.pow(obj1.y - obj2.y, 2) + Math.pow(obj1.z - obj2.z, 2));
-        return distance;
+    public int getMass() {
+        return mass;
     }
 
-    public static double getDistanceBetweenInKm(CelestialObject obj1, CelestialObject obj2){
-        return getDistanceBetween(obj1, obj2) * KM_IN_ONE_AU;
-    }
- 
-    @Override
-    public String toString(){
-        return String.format("%s is positioned at (%.3f, %.3f, %.3f)", this.name, this.x, this.y, this.z);
+    public void setMass(int mass) {
+        this.mass = mass;
     }
 
-
-    @Override
-    public boolean equals(Object obj){
-        if (this == obj){
-            return true;
-        }
-        if (obj == null){
-            return false;
-        }
-        if (this.getClass() != obj.getClass()){
-            return false;
-        }
-        CelestialObject other = (CelestialObject) obj;
-        if (this.x != other.x){
-            return false;
-        }
-        if (this.y != other.y){
-            return false;
-        }
-        if (this.z != other.z){
-            return false;
-        }
-        return this.name.equals(other.name);
+    public void setName(String name) {
+        this.name = name;
     }
-    
-    @Override
-    public int hashCode(){
-        int hash = 7;
-        hash = 31 * hash + (int) (Double.doubleToLongBits(this.x) ^ (Double.doubleToLongBits(this.x) >>> 32));
-        hash = 31 * hash + (int) (Double.doubleToLongBits(this.y) ^ (Double.doubleToLongBits(this.y) >>> 32));
-        hash = 31 * hash + (int) (Double.doubleToLongBits(this.z) ^ (Double.doubleToLongBits(this.z) >>> 32));
-        hash = 31 * hash + (this.name != null ? this.name.hashCode() : 0);
-        return hash;
+
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public void setY(double y) {
+        this.y = y;
+    }
+
+    public void setZ(double z) {
+        this.z = z;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getX() {
+        return x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public double getZ() {
+        return z;
+    }
+
+    public static double getDistanceBetween(CelestialObject a, CelestialObject b) {
+        double dx = a.x - b.x;
+        double dy = a.y - b.y;
+        double dz = a.z - b.z;
+        return Math.sqrt(dx * dx + dy * dy + dz * dz);
+    }
+
+    public static double getDistanceBetweenInKm(CelestialObject a, CelestialObject b) {
+        return getDistanceBetween(a, b) * KM_IN_ONE_AU;
+    }
+
+    public String toString() {
+        return String.format("%s is positioned at (%.3f, %.3f, %.3f)", name, x, y, z);
+    }
+
+    public boolean equals(Object obj) {
+
+        if (obj == null || getClass() != obj.getClass())
+            return false;
+
+        CelestialObject that = (CelestialObject) obj;
+
+        if (Double.compare(that.x, x) != 0)
+            return false;
+        if (Double.compare(that.y, y) != 0)
+            return false;
+        if (Double.compare(that.z, z) != 0)
+            return false;
+        return name != null ? name.equals(that.name) : that.name == null;
+    }
+
+    public int hashCode() {
+        return java.util.Objects.hash(name, x, y, z);
     }
 }

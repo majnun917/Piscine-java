@@ -8,9 +8,9 @@ public class Planet extends CelestialObject {
         this.centerStar = new Star();
     }
 
-    public Planet(String name, double x, double y, double z, int mass, Star centeStar) {
+    public Planet(String name, double x, double y, double z, Star centerStar, int mass) {
         super(name, x, y, z, mass);
-        this.centerStar = centeStar;
+        this.centerStar = centerStar;
     }
 
     public Star getCenterStar() {
@@ -22,26 +22,23 @@ public class Planet extends CelestialObject {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (!(obj instanceof Planet))
-            return false;
-        if (!super.equals(obj))
-            return false;
-
-        Planet other = (Planet) obj;
-        return Objects.equals(centerStar, other.centerStar);
-    }
-
-    @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), centerStar);
     }
 
     @Override
+    public boolean equals(Object obj) {
+        if (!super.equals(obj))
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Planet other = (Planet) obj;
+        return Objects.equals(centerStar, other.centerStar);
+    }
+
+    @Override
     public String toString() {
         double d = CelestialObject.getDistanceBetween(this, centerStar);
-        return String.format("%s circles around %s at the %.3f AU", name, centerStar.name, d);
+        return String.format("%s circles around %s at the %.3f AU", name, centerStar.getName(), d);
     }
 }

@@ -1,8 +1,19 @@
+import java.util.Objects;
+
 public class Star extends CelestialObject {
     private double magnitude;
-    public Star centerStar;
 
-    public double  getMagnitude() {
+    public Star() {
+        super();
+        this.magnitude = 0.0;
+    }
+
+    public Star(String name, double x, double y, double z, double magnitude, int mass) {
+        super(name, x, y, z, mass);
+        this.magnitude = magnitude;
+    }
+
+    public double getMagnitude() {
         return magnitude;
     }
 
@@ -10,56 +21,23 @@ public class Star extends CelestialObject {
         this.magnitude = magnitude;
     }
 
-     public Star() {
-        super();
-        this.magnitude = 0.0;
-    }
-
-
-    public Star(String name,double x,double y,double z, double magnitude, int mass){
-        super(name, x, y, z, mass);
-        this.magnitude = magnitude;
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), magnitude);
     }
 
     @Override
-    public boolean equals(Object obj){
-        if (this == obj){
-            return true;
-        }
-        if (obj == null){
+    public boolean equals(Object obj) {
+        if (!super.equals(obj))
             return false;
-        }
-        if (this.getClass() != obj.getClass()){
+        if (getClass() != obj.getClass())
             return false;
-        }
         Star other = (Star) obj;
-        if (this.x != other.x){
-            return false;
-        }
-        if (this.y != other.y){
-            return false;
-        }
-        if (this.z != other.z){
-            return false;
-        } if (this.magnitude != other.magnitude){
-            return false;
-        }
-        return this.name.equals(other.name);
-    }
-    
-    @Override
-    public int hashCode(){
-        int hash = 7;
-        hash = 31 * hash + (int) (Double.doubleToLongBits(this.x) ^ (Double.doubleToLongBits(this.x) >>> 32));
-        hash = 31 * hash + (int) (Double.doubleToLongBits(this.y) ^ (Double.doubleToLongBits(this.y) >>> 32));
-        hash = 31 * hash + (int) (Double.doubleToLongBits(this.z) ^ (Double.doubleToLongBits(this.z) >>> 32));
-        hash = 31 * hash + (int) (Double.doubleToLongBits(this.magnitude) ^ (Double.doubleToLongBits(this.magnitude) >>> 32));
-        hash = 31 * hash + (this.name != null ? this.name.hashCode() : 0);
-        return hash;
+        return Double.compare(magnitude, other.magnitude) == 0;
     }
 
     @Override
-    public String toString(){
-        return String.format("%s shines at the %.3f magnitude",this.name, this.magnitude);
+    public String toString() {
+        return String.format("%s shines at the %.2f magnitude", name, magnitude);
     }
 }

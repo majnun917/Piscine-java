@@ -13,19 +13,21 @@ It is built around two main interfaces:
 
 ## <span style="color:lightblue">Project Structure</span>
 ```
-├── Main.java
+├── bonus/
+|   ├── Cube.java
+|   ├── Point3D.java
+|   └── Pentagon.java
 ├── geometrical_shapes/
-│ ├── Drawable.java
-│ ├── Displayable.java
-│ ├── Point.java
-│ ├── Line.java
-│ ├── Triangle.java
-│ ├── Rectangle.java
-│ ├── Circle.java
-│ ├── Pentagon.java (bonus)
-│ └── Cube.java (bonus)
-└── image/
-└── Image.java
+│   ├── Drawable.java
+│   ├── Displayable.java
+│   ├── Point.java
+│   ├── Line.java
+│   ├── Triangle.java
+│   ├── Rectangle.java
+│   ├── Circle.java
+│   └── image.java
+├── Main.java
+└── README.md
 ```
 
 
@@ -38,6 +40,6 @@ It is built around two main interfaces:
 
 ## <span style="color:lightblue">Collaborators</span>
 
-[Hasnae Lamrani](https://learn.zone01oujda.ma/git/hlamrani)            
-[Ndiasse Dieye](https://learn.zone01oujda.ma/git/ndieye)           
-[Youssef JAOUHAR](https://learn.zone01oujda.ma/git/yojaouhar)         
+[Hasnae Lamrani](#)            
+[Ndiasse Dieye](#)           
+[Youssef JAOUHAR](#)         

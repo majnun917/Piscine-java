@@ -77,7 +77,7 @@ public class Character {
                 break;
             }
             obj2.attack(obj1);
-            if (obj2.getCurrentHealth() == 0){
+            if (obj1.getCurrentHealth() == 0){
                 winner = obj2;
                 break;
             }

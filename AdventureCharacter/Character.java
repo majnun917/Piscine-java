@@ -3,7 +3,7 @@ public class Character{
     private int currentHealth;
     final private String name;
 
-    Character(String name, int maxHealth){
+    public Character(String name, int maxHealth){
         this.name = name;
         this.maxHealth = maxHealth;
         this.currentHealth = maxHealth;
@@ -21,17 +21,17 @@ public class Character{
         return name + " : " + getCurrentHealth() + "/" + getMaxHealth();
     }
 
-    public int takeDamage(int amount){
-       currentHealth -= amount;
-        if (currentHealth < 0) {
-            currentHealth = 0;
+    public void takeDamage(int amount){
+        this.currentHealth -= amount;
+        if (this.currentHealth < 0){
+            this.currentHealth = 0;
         }
-        return currentHealth;
-
+        return;
     }
 
-    public int attack(Character c){
-        return c.takeDamage(9);
+    public void attack(Character c){
+        c.takeDamage(9);
+        return;
     }
 
     // public static void main(String[] args) {

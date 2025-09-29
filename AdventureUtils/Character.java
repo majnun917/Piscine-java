@@ -1,3 +1,4 @@
+package AdventureUtils;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -69,30 +70,33 @@ public class Character {
     }
 
     public static Character fight(Character obj1, Character obj2) {
-        Character winner;
-        while (obj1.getCurrentHealth() > 0 && obj2.getCurrentHealth() > 0) {
+        Character winner = null;
+        while(true){
             obj1.attack(obj2);
+            if (obj2.getCurrentHealth() == 0){
+                winner = obj1;
+                break;
+            }
             obj2.attack(obj1);
-        }
-        if (obj1.getCurrentHealth() > 0) {
-            winner = obj1;
-        } else {
-            winner = obj2;
+            if (obj2.getCurrentHealth() == 0){
+                winner = obj2;
+                break;
+            }
         }
         return winner;
     }
 
-    // public static void main(String[] args) {
-    //     System.out.print(Character.printStatus());
+    public static void main(String[] args) {
+        System.out.print(Character.printStatus());
 
-    //     Character aragorn = new Character("Aragorn", 20);
-    //     Character uruk = new Character("Uruk", 15);
+        Character aragorn = new Character("Aragorn", 20);
+        Character uruk = new Character("Uruk", 15);
 
-    //     System.out.print(Character.printStatus());
+        System.out.print(Character.printStatus());
 
-    //     Character winner = Character.fight(aragorn, uruk);
+        Character winner = Character.fight(aragorn, uruk);
 
-    //     System.out.println(winner.toString());
-    //     System.out.print(Character.printStatus());
-    // }
+        System.out.println(winner.toString());
+        System.out.print(Character.printStatus());
+    }
 }

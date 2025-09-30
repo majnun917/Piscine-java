@@ -29,24 +29,19 @@ public class Sorcerer extends Character implements Healer {
     }
 
     public void takeDamage(int amount) throws DeadCharacterException {
-            try {
-                int newHealth = getCurrentHealth() - amount;
-            if (newHealth < 0) {
-                newHealth = 0;
-            }
-            setCurrentHealth(newHealth);
-            if (getCurrentHealth() == 0) throw new DeadCharacterException(this);
-            } catch (DeadCharacterException e) {
-                throw e;
-            }
-            
-        
+        if (getCurrentHealth() == 0) throw new DeadCharacterException(this);
+        int newHealth = getCurrentHealth() - amount;
+        if (newHealth < 0) {
+            newHealth = 0;
+        }
+        setCurrentHealth(newHealth);
         return;
     }
 
     @Override
     public void attack(Character c) throws DeadCharacterException {
         this.heal(this);
+        if (getCurrentHealth() == 0) throw new DeadCharacterException(this);
        try {
         if (getWeapon() == null) {
             c.takeDamage(10);
@@ -54,7 +49,7 @@ public class Sorcerer extends Character implements Healer {
             c.takeDamage(getWeapon().getDamage());
         }
        } catch (DeadCharacterException e) {
-        throw new DeadCharacterException(this);
+        throw e;
        }
         return;
     }

@@ -30,7 +30,7 @@ public class Templar extends Character implements Healer, Tank {
     @Override
     public void takeDamage(int amount) {
         int newHealth = getCurrentHealth() - amount;
-        newHealth -= this.shield;
+        newHealth += this.shield;
          if (newHealth < 0) {
             newHealth = 0;
         }

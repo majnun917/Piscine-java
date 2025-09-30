@@ -22,18 +22,17 @@ public class Sorcerer extends Character implements Healer {
 
     @Override
     public void takeDamage(int amount) {
-        int newHealth = getCurrentHealth();
-        newHealth -= amount;
+        int newHealth = getCurrentHealth() - amount;
         if (newHealth < 0) {
             newHealth = 0;
         }
-        //setCurrentHealth(newHealth);
+        setCurrentHealth(newHealth);
         return;
     }
     
     @Override
     public void attack(Character c) {
-        heal(c);
+        this.heal(this);
         c.takeDamage(10);
         return;
     }

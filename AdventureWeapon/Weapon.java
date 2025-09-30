@@ -13,6 +13,6 @@ public class Weapon {
 
     @Override
     public String toString(){
-        return getName() + " deals " + getDamage() + " damages.";
+        return getName() + " deals " + getDamage() + " damages";
     }
 }

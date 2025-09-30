@@ -1,4 +1,4 @@
-package AdventureException;
+
 public class Sorcerer extends Character implements Healer {
     final private int healCapacity;
 

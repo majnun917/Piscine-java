@@ -1,4 +1,4 @@
-package AdventureException;
+
 
 public class Templar extends Character implements Healer, Tank {
     private final int healCapacity;

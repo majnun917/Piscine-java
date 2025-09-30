@@ -1,4 +1,4 @@
-package AdventureException;
+
 
 public class DeadCharacterException extends Exception {
     Character exc;

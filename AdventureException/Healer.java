@@ -1,4 +1,4 @@
-package AdventureException;
+
 
 public interface Healer {
     public void heal(Character c);

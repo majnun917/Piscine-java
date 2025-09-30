@@ -21,8 +21,9 @@ public class Sorcerer extends Character implements Healer {
                 ch = hc.getMaxHealth();
             }
             hc.setCurrentHealth(ch);
+            if (hc.getCurrentHealth() == 0) throw new DeadCharacterException(hc);
         } catch (Exception e) {
-            throw new DeadCharacterException(this);
+            throw e;
         }
         return;
     }
@@ -36,7 +37,7 @@ public class Sorcerer extends Character implements Healer {
             setCurrentHealth(newHealth);
             if (getCurrentHealth() == 0) throw new DeadCharacterException(this);
             } catch (DeadCharacterException e) {
-                throw new DeadCharacterException(this);
+                throw e;
             }
             
         

@@ -16,7 +16,7 @@ public class Monster extends Character {
 
     @Override
     public void takeDamage(int amount) {
-        int newHealth = getCurrentHealth() - ((int) 0.8 * amount);
+        int newHealth = getCurrentHealth() - ((int) (0.8 * amount));
         if (newHealth < 0) {
             newHealth = 0;
         }

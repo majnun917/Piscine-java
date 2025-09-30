@@ -27,6 +27,7 @@ public class Sorcerer extends Character implements Healer {
         if (newHealth < 0) {
             newHealth = 0;
         }
+        setCurrentHealth(newHealth);
         return;
     }
     

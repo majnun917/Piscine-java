@@ -23,7 +23,7 @@ public abstract class Character {
         return this.currentHealth;
     }
 
-    public void setCurrentHealth(int maxHealth2) {
+    protected void setCurrentHealth(int maxHealth2) {
        this.currentHealth = maxHealth2;
     }
     public String getName() {

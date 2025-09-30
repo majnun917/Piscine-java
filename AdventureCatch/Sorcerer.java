@@ -28,13 +28,17 @@ public class Sorcerer extends Character implements Healer {
     }
 
     public void takeDamage(int amount) throws DeadCharacterException {
-        
-            int newHealth = getCurrentHealth() - amount;
+            try {
+                int newHealth = getCurrentHealth() - amount;
             if (newHealth < 0) {
                 newHealth = 0;
             }
             setCurrentHealth(newHealth);
             if (getCurrentHealth() == 0) throw new DeadCharacterException(this);
+            } catch (DeadCharacterException e) {
+                throw new DeadCharacterException(this);
+            }
+            
         
         return;
     }

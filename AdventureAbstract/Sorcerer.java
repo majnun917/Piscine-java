@@ -22,7 +22,7 @@ public class Sorcerer extends Character implements Healer {
 
     @Override
     public void takeDamage(int amount) {
-        amount += amount;
+        amount = amount;
         return;
     }
     

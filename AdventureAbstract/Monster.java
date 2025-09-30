@@ -1,3 +1,4 @@
+
 public class Monster extends Character {
     public Monster(String name, int maxHealth){
         super(name, maxHealth);
@@ -16,8 +17,12 @@ public class Monster extends Character {
     @Override
     public void takeDamage(int amount) {
        int ad = (int) 0.8 * amount;
-       takeDamage(ad);
-        return;
+       int newHealth = getCurrentHealth() - ad;
+       if (newHealth < 0) {
+           newHealth = 0;
+       }
+       setCurrentHealth(newHealth);
+       return;
     }
     
     @Override

@@ -77,7 +77,7 @@ public abstract class Character {
                 if (obj2.getCurrentHealth() > 0)
                     obj2.attack(obj1);
             } catch (DeadCharacterException e) {
-               throw e;
+                System.out.println(e.toString());
             }
         }
         if (obj1.getCurrentHealth() == 0) {

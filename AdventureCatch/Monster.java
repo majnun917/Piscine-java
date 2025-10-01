@@ -17,7 +17,7 @@ public class Monster extends Character {
 
     @Override
     public void takeDamage(int amount) throws DeadCharacterException {
-        if (getCurrentHealth()==0) throw new DeadCharacterException(this);
+        if (getCurrentHealth()<=0) throw new DeadCharacterException(this);
         int newHealth = getCurrentHealth() - ((int) (0.8 * amount));
         if (newHealth < 0) {
             newHealth = 0;
@@ -28,9 +28,10 @@ public class Monster extends Character {
 
     @Override
     public void attack(Character c) throws DeadCharacterException {
-        if (getCurrentHealth() == 0) {
+        if (getCurrentHealth() <= 0) {
             throw new DeadCharacterException(this);
         }
+        if (c.getCurrentHealth() <= 0) throw new DeadCharacterException(c)
         if (getWeapon() == null) {
             c.takeDamage(7);
         } else {

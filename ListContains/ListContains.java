@@ -1,5 +1,3 @@
-package ListContains;
-
 import java.util.List;
 
 public class ListContains {

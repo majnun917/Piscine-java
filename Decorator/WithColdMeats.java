@@ -1,8 +1,8 @@
 public class WithColdMeats extends RacletteDecorator {
     private Raclette decoratedRaclette;
 
-    public WithColdMeats(Raclette raclette){
-        super(raclette);
+    public WithColdMeats(Raclette decoratedRaclette){
+        super(decoratedRaclette);
     }
 
     public int getCalories() {

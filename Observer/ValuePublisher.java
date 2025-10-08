@@ -11,9 +11,9 @@ public class ValuePublisher {
         }
     }
     public void subscribe(NumericBaseObserver observer){
-        this.observers.add(observer);
+        observers.add(observer);
     }
     public void unsubscribe(NumericBaseObserver observer){
-        this.observers.remove(observer);
+        observers.remove(observer);
     }
 }

@@ -6,10 +6,10 @@ class BinaryBaseObserver implements NumericBaseObserver {
 
     public void updateState(int state) {
         String binStr = Integer.toBinaryString(state);
-        this.events.add(binStr);
+        events.add(binStr);
     }
 
     public List<String> getEvents() {
-        return this.events;
+        return events;
     }
 }

@@ -6,10 +6,10 @@ class HexaBaseObserver implements NumericBaseObserver {
 
     public void updateState(int state) {
         String hexStr = Integer.toHexString(state);
-        this.events.add(hexStr);
+        events.add(hexStr);
     }
 
     public List<String> getEvents() {
-        return this.events;
+        return events;
     }
 }

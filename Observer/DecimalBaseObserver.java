@@ -7,10 +7,10 @@ class DecimalBaseObserver implements NumericBaseObserver {
     
     public void updateState(int state) {
         String decStr = new BigDecimal(state).toPlainString();
-        this.events.add(decStr);
+        events.add(decStr);
     }
 
     public List<String> getEvents() {
-        return this.events;
+        return events;
     }
 }
